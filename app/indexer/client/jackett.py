@@ -14,6 +14,7 @@ class Jackett(_IIndexClient):
     index_type = IndexerType.JACKETT.value
     client_type = IndexerType.JACKETT
     _password = None
+    host = "http://127.0.0.1:9117/"
 
     def __init__(self, config=None):
         super().__init__()
