@@ -353,7 +353,7 @@ class ConfigMonitor(FileSystemEventHandler):
                 if hasattr(instance, "init_config"):
                     instance.init_config()
         # 正在使用的二级分类策略文件3秒内只能加载一次，配置文件加载时，二级分类策略文件不加载
-        elif file_name == os.path.basename(Config().category_path) \
+        elif Config().category_path is not None and file_name == os.path.basename(Config().category_path) \
                 and not CategoryLoadCache.get(src_path) \
                 and not CategoryLoadCache.get("ConfigLoadBlock"):
             CategoryLoadCache.set(src_path, True)
